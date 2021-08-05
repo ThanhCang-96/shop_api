@@ -28,4 +28,7 @@ Route::group([
   Route::post('/country/create', 'CountryController@store')->name('country.store');
   Route::post('/country/update/{id}', 'CountryController@update')->name('country.update');
   Route::delete('/country/delete/{id}', 'CountryController@destroy')->name('country.delete');
+
+  Route::get('/user', 'UserController@index')->name('user.list');
+  Route::post('/user/update/{id}', 'UserController@update')->name('user.update');
 });
