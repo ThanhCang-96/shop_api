@@ -31,4 +31,9 @@ Route::group([
 
   Route::get('/user', 'UserController@index')->name('user.list');
   Route::post('/user/update/{id}', 'UserController@update')->name('user.update');
+
+  Route::get('/blog','BlogController@index')->name('blog.list');
+  Route::post('/blog/create','BlogController@store')->name('blog.create');
+  Route::post('/blog/update/{id}','BlogController@update')->name('blog.update');
+  Route::delete('/blog/delete/{id}', 'BlogController@destroy')->name(('blog.delete'));
 });
