@@ -36,4 +36,6 @@ Route::group([
   Route::post('/blog/create','BlogController@store')->name('blog.create');
   Route::post('/blog/update/{id}','BlogController@update')->name('blog.update');
   Route::delete('/blog/delete/{id}', 'BlogController@destroy')->name(('blog.delete'));
+
+  Route::post('/register', 'MemberController@register')->name('member.register');
 });
