@@ -75,16 +75,38 @@
         <!-- ============================================================== -->
         <!-- User profile and search -->
         <!-- ============================================================== -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user"
-              class="rounded-circle" width="31"></a>
-          <div class="dropdown-menu dropdown-menu-right user-dd animated">
-            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> Logout</a>
-            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Logout</a>
-          </div>
-        </li>
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+            @endif
+        @else
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  <img src="{{ asset('upload/avatar/'.Auth::id().'/'.Auth::user()->avatar) }}" alt="user"
+                    class="rounded-circle" width="31">
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('user.show') }}">
+                      {{ __('Profile') }}
+                  </a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                </div>
+            </li>
+        @endguest
+        
         <!-- ============================================================== -->
         <!-- User profile and search -->
         <!-- ============================================================== -->
