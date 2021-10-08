@@ -38,4 +38,5 @@ Route::group([
   Route::delete('/blog/delete/{id}', 'BlogController@destroy')->name(('blog.delete'));
 
   Route::post('/register', 'MemberController@register')->name('member.register');
+  Route::post('/login','MemberController@login')->name('member.login');
 });

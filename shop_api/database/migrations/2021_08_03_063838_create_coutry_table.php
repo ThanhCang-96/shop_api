@@ -13,12 +13,12 @@ class CreateCoutryTable extends Migration
      */
     public function up()
     {
-        Schema::create('country', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->unsignedInteger('active')->default(1)->comment('1:active 0:inactive');
-            $table->timestamps();
-        });
+      Schema::create('country', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->unsignedInteger('active')->default(1)->comment('1:active 0:inactive');
+        $table->timestamps();
+      });
     }
 
     /**

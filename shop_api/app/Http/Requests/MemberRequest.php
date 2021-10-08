@@ -28,7 +28,8 @@ class MemberRequest extends FormRequest
         'email' => 'bail|email|required',
         'password' => 'bail|min:8|max:20|nullable',
         'phone' => "bail|digits:10|required" , 
-        'address' => "bail|max:100|required", 
+        'address' => "bail|max:100|required",
+        'country_id' => 'required', 
         'avatar' => "bail|nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048"
       ];
     }

@@ -14,15 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::group([
   'namespace' => 'Admin',
   'prefix' => 'admin'], function(){
-  Route::get('/home', 'DashboardController@index');
-  
+  Route::get('/home', 'DashboardController@index')->name('home');
+
+  // route country
+  Route::get('/country', 'CountryController@index')->name('country.index');
+  Route::get('/country/create', 'CountryController@create')->name('country.create');
+  Route::post('/country/create', 'CountryController@store')->name('country.store');
+  Route::get('/country/{id}/update', 'CountryController@edit')->name('country.edit');
+  Route::post('/country/{id}/update', 'CountryController@update')->name('country.update');
+  Route::get('/country/{id}/delete', 'CountryController@destroy')->name('country.delete');
+  Route::get('/country/{id}/enable', 'CountryController@enableCountry')->name(('country.enable'));
+  Route::get('/country/{id}/disable', 'CountryController@disableCountry')->name(('country.disable'));
+
+  Route::get('/user', 'Usercontroller@index')->name('user.index');
+  Route::get('/user/profile', 'Usercontroller@show')->name('user.show');
+  Route::get('/user/{id}/update', 'UserController@edit')->name('user.edit');
+  Route::post('/user/{id}/update', 'UserController@update')->name('user.update');
+  Route::get('/user/{id}/delete', 'UserController@destroy')->name('user.delete');
 });

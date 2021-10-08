@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
    */
   public function authorize()
   {
-    return false;
+    return true;
   }
 
   /**
@@ -28,6 +28,7 @@ class UserRequest extends FormRequest
       'email' => "bail|required|email|nullable",
       // email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
       'password => "bail|min:8|max:20|nullable',
+      'password_confirm' => "bail|min:8|max:20|same:password",
       'phone' => "bail|digits:10|nullable" , 
       'address' => "bail|max:100|nullable", 
       'avatar' => "bail|nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048"
