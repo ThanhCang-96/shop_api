@@ -39,4 +39,8 @@ class User extends Authenticatable
   public function country() {
     return $this->belongsTo('App\Country');
   }
+
+  public function blogs(){
+    return $this->hasMany('App\Blog', 'author_id');
+  }
 }

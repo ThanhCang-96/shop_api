@@ -73,8 +73,11 @@
       <!-- Container fluid  -->
       <!-- ============================================================== -->
       <div class="container-fluid">
-        @if (session('status'))
-          <div class="alert alert-info">{{session('status')}}</div>
+        @if (session('success'))
+          <div class="alert alert-info">{{session('success')}}</div>
+        @endif
+        @if (session('error'))
+          <div class="alert alert-danger">{{session('error')}}</div>
         @endif
         @if ($errors->any())
           <div class="alert alert-danger">
@@ -126,6 +129,19 @@
   <script src="{{ asset('admin/assets/libs/chartist/dist/chartist.min.js')}}"></script>
   <script src="{{ asset('admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
   <script src="{{ asset('admin/dist/js/pages/dashboards/dashboard1.js') }}"></script>
+
+  <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+  <script>
+    CKEDITOR.replace( 'content', {
+      filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+      filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+      filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+      filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+      filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+      filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+  </script>
+
 </body>
 
 </html>

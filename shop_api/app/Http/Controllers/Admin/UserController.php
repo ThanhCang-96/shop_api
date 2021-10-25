@@ -141,9 +141,9 @@ class UserController extends Controller
       $user = $user->update($data);
     }
     if($user){
-      return redirect()->back()->with('status', 'Success');
+      return redirect()->back()->with('success', 'Success');
     } else {
-      return redirect()->back()->with('status', 'Fail');
+      return redirect()->back()->with('error', 'Fail');
     }
   }
 
@@ -157,9 +157,9 @@ class UserController extends Controller
   {
     $user = User::findOrFail($id);
     if($user->delete()){
-      return redirect()->back()->with('status', 'Delete success');
+      return redirect()->back()->with('success', 'Delete success');
     } else {
-      return redirect()->back()->with('status', 'Delete fails');
+      return redirect()->back()->with('error', 'Delete fails');
     }
   }
 }

@@ -10,5 +10,9 @@ class Blog extends Model
 
   public $timestamp = false;
 
-  protected $fillable = ['title', 'image', 'description'];
+  protected $fillable = ['title', 'image', 'description', 'content'];
+
+  public function User(){
+    return $this->belongsTo('App\User','author_id');
+  }
 }

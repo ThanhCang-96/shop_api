@@ -25,19 +25,19 @@
         <li class="sidebar-item">
           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('country.index') }}" aria-expanded="false">
             <i class="fas fa-globe"></i>
-            <span class="hide-menu">Country</span>
+            <span class="hide-menu">Countries</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="table-basic.html" aria-expanded="false">
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('brand.index') }}" aria-expanded="false">
+            <i class="fas fa-band-aid"></i>
+            <span class="hide-menu">Brands</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('category.index') }}" aria-expanded="false">
             <i class="mdi mdi-border-none"></i>
-            <span class="hide-menu">Table</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="icon-material.html" aria-expanded="false">
-            <i class="mdi mdi-face"></i>
-            <span class="hide-menu">Icon</span>
+            <span class="hide-menu">Categories</span>
           </a>
         </li>
         <li class="sidebar-item">
